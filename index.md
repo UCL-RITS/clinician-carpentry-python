@@ -16,7 +16,7 @@ An **R** version of this course is also available at FIXME
 
 > ## Getting Started
 >
-> Data Carpentry's teaching is hands-on, so participants are encouraged to use
+> Data Carpentry's teaching is hands-on and participants are encouraged to use
 > their own computers to ensure the proper setup of tools for an efficient
 > workflow. <br>**These lessons assume no prior knowledge of the skills or tools.**
 >
