@@ -1,24 +1,27 @@
 ---
 layout: page
-title: "Overview of Jupyter Notebooks"
-permalink: /jupyter_notebooks/
+title: "Overview of JupyterLab Notebooks"
+permalink: /jupyterlab_notebooks/
 ---
 
-![Example Jupyter Notebook](../fig/00_0_jupyter_notebook_example.jpg)
-*Screenshot of a [Jupyter Notebook on quantum mechanics](https://github.com/jrjohansson/qutip-lectures) by Robert Johansson*
+![Example JupyterLab Notebook 1](../fig/00_0_jupyterlab_notebook_example_1.png)
 
-### How the Jupyter notebook works
+![Example JupyterLab Notebook 2](../fig/00_1_jupyterlab_notebook_example_2.png)
+*Screenshots of example JupyterLab notebooks*
 
-After typing the command `jupyter notebook`, the following happens:
 
-* A Jupyter Notebook server is automatically created on your local machine.
-* The Jupyter Notebook server runs locally on your machine only and does not
+### How the JupyterLab notebook works
+
+After typing the command `jupyter-lab`, the following happens:
+
+* A JupyterLab notebook server is automatically created on your local machine.
+* The JupyterLab notebook server runs locally on your machine only and does not
   use an internet connection.
-* The Jupyter Notebook server opens the Jupyter notebook client, also known
+* The JupyterLab notebook server opens the JupyterLab notebook client, also known
   as the notebook user interface, in your default web browser.
 
-  ![Jupyter notebook file browser](../fig/00_1_jupyter_file_browser.png)
-  *The Jupyter notebook file browser*
+  ![JupyterLab notebook file browser](../fig/00_1_jupyter_file_browser.png)
+  *The JupyterLab notebook file browser*
 
 * To create a new Python notebook select the "New" dropdown on the upper
   right of the screen.

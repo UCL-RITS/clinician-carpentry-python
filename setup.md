@@ -24,7 +24,7 @@ title: Setup
 > installer [Anaconda][anaconda].
 >
 > Regardless of how you choose to install it, please make sure you install Python
-> version 3.x (e.g., 3.6 is fine).
+> version 3.x (e.g., 3.8 is fine).
 {: .prereq}
 
 
@@ -136,48 +136,39 @@ If you run into any difficulties, please request help before the workshop begins
 The following are packages needed for this workshop:
 
 * [Pandas](https://pandas.pydata.org/)
-* [Jupyter notebook](https://jupyter.org/)
+* [JupyterLab](https://jupyter.org/)
 * [Numpy](https://numpy.org/)
 * [Matplotlib](https://matplotlib.org/)
 * [Seaborn](https://seaborn.pydata.org/)
 
-All packages apart from `seaborn` will have automatically been installed with Anaconda
-and we can use Anaconda as a package manager to install the missing `seaborn` package:
+Depending on your release, some packages will have automatically been installed with Anaconda.  
+Anaconda has a built-in package manager we can use to install any missing packages:
 You need to open up a *Terminal*, if you are using Mac OSX, or Linux (see instructions above),
 or launch an *anaconda-promt*, if you are using Windows. In your terminal window type the following:
 
 ~~~
-conda install -y seaborn
+conda install -y numpy pandas matplotlib jupyterlab seaborn
 ~~~
 {: .language-bash}
 
-This will then install the latest version of seaborn into your conda environment.
-
-## Required packages: Miniconda
-
-Miniconda is a lightweight version of Anaconda. If you install Miniconda instead of Anaconda,
-you need to install required packages manually in the following way:
-~~~
-conda install -y numpy pandas matplotlib jupyter seaborn
-~~~
-{: .language-bash}
+This will then install the latest version of each package into your conda environment.
 
 
-## Launch a Jupyter notebook
+## Launch a JupyterLab notebook
 
-After installing either Anaconda or Miniconda and the workshop packages,
-launch a Jupyter notebook by typing this command from the terminal:
+After installing Anaconda and the required packages,
+launch a JupyterLab notebook by typing this command from the terminal:
 
 ~~~
-jupyter notebook
+jupyter-lab
 ~~~
 {: .language-bash}
 
 The notebook should open automatically in your browser. If it does not or you
 wish to use a different browser, open this link: <http://localhost:8888>.
 
-For a brief introduction to Jupyter Notebooks, please consult our
-[Introduction to Jupyter Notebooks](jupyter_notebooks) page.
+For a brief introduction to JupyterLab Notebooks, please consult our
+[Introduction to JupyterLab Notebooks](jupyterlab_notebooks) page.
 
 
 

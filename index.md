@@ -3,12 +3,12 @@ layout: lesson
 root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
-These lessons aim to teach doctors, nurses, and other health care professionals basic concepts, skills, and tools for working effectively with heath care data using Python and modern data science tools. 
+These lessons aim to teach doctors, nurses, and other health care professionals the basic concepts, skills, and tools for working effectively with heath care data using Python and modern data science tools. 
 
 Python is a general purpose programming language that is useful for writing scripts to work effectively and reproducibly with data.
 The material contains an introduction to Python designed for participants with no programming experience. 
 
-They start with some basic information about Python syntax, the Jupyter notebook interface, and move through how to import CSV files, using the pandas package to work with data frames, how to calculate summary information from a data frame, and a brief introduction to plotting. The last lesson demonstrates how to work with databases directly from Python.
+It starts with some basic information about Python syntax, then looks at the JupyterLab notebook interface, moves through how to import data from CSV files, using the pandas package to work with data frames, how to calculate summary information from a data frame, and a brief introduction to plotting. The last lesson demonstrates how to work with databases directly from Python.
 
 An **R** version of this course is also available at FIXME
 
