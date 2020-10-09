@@ -4,6 +4,8 @@ title: "Overview of JupyterLab Notebooks"
 permalink: /jupyterlab_notebooks/
 ---
 
+### JupyterLab Notebook examples
+
 ![Example JupyterLab Notebook 1](../fig/00_0_jupyterlab_notebook_example_1.png)
 
 ![Example JupyterLab Notebook 2](../fig/00_1_jupyterlab_notebook_example_2.png)
@@ -12,84 +14,81 @@ permalink: /jupyterlab_notebooks/
 
 ### How the JupyterLab notebook works
 
-After typing the command `jupyter-lab`, the following happens:
+After typing the command 
+~~~
+jupyter-lab
+~~~
+{: .language-bash }
+
+in your terminal window, the following happens:
 
 * A JupyterLab notebook server is automatically created on your local machine.
 * The JupyterLab notebook server runs locally on your machine only and does not
   use an internet connection.
 * The JupyterLab notebook server opens the JupyterLab notebook client, also known
   as the notebook user interface, in your default web browser.
+* When you create a new notebook and type code into it within the browser, the web browser and the JupyterLab notebook server communicate with each other.
 
-  ![JupyterLab notebook file browser](../fig/00_1_jupyter_file_browser.png)
-  *The JupyterLab notebook file browser*
 
-* To create a new Python notebook select the "New" dropdown on the upper
-  right of the screen.
+![JupyterLab launcher](../fig/00_2_jupyterlab_launcher.png)
+*The JupyterLab Launcher*
 
-  ![Jupyter notebook file browser](../fig/00_2_jupyter_new_notebook.png)
-  *The Jupyter notebook file browser*
+To create a new Python notebook, click on the *Python 3* tile in the *Notebook* section on the Launcher tab
 
-* When you can create a new notebook and type code into the browser, the web
-  browser and the Jupyter notebook server communicate with each other.
 
-  ![new Jupyter notebook](../fig/00_3_jupyter_blank_notebook.png)
+  ![new Jupyter notebook](../fig/00_3_jupyterlab_untitled.png)
   *A new, blank Jupyter notebook*
 
-* Under the "help" menu, take a quick interactive tour of how to
-  use the notebook. Help on Jupyter and key workshop packages is
-  available here too.
 
-  ![Jupyter tour and help](../fig/00_4_jupyter_tour_help.png)
-  *User interface tour and Help*
+Under the **Help** menu you will find guides on JupyterLab, Python, Markdown and some of the common Python packages we use in the Lesson.
 
-* The Jupyter Notebook server does the work and calculations, and the web
-  browser renders the notebook.
-* The web browser then displays the updated notebook to you.
+  ![Jupyter help](../fig/00_4_jupyterlab_help.png)
+  *Where to find help*
 
-* For example, click in the first cell and type some Python code.
+A JupyterLab notebook is made up of a number of cells which can contain code, Markdown, HTML, visualizations, and more.  
+The JupyterLab notebook server does the work and calculations, and the web browser renders the notebook. The web browser then displays the updated notebook to you.  
+For example, click in the first cell and type some Python code.
 
-  ![Code cell](../fig/00_5_jupyter_code_before.png)
-  *A Code cell*
+![Code cell](../fig/00_5_jupyterlab_code_entry.png)
+*A Code cell*
 
-* This is a **Code** cell (see the cell type dropdown with the word **Code**).
-  To run the cell, type <kbd>Shift</kbd>+<kbd>Return</kbd>.
+This is a **Code** cell (see the cell type dropdown with the word **Code**).  
+To run the cell, type <kbd>Shift</kbd>+<kbd>Return</kbd>
 
-  ![Code cell and its output](../fig/00_6_jupyter_code_after.png)
-  *A Code cell and its output*
+![Code cell and its output](../fig/00_6_jupyterlab_code_output.png)
+*A Code cell and its output*
 
-* Let's look at a **Markdown** cell. Markdown is a text manipulation
-  language that is readable yet offers additional formatting. Don't forget
-  to select **Markdown** from the cell type dropdown. Click in the cell and
-  enter the markdown text.
+Let's look at a **Markdown** cell.  
+Markdown is a text manipulation language that is readable yet offers additional formatting.  
+Don't forget to select **Markdown** from the cell type dropdown. Click in the cell and enter the markdown text.
 
-  ![markdown input cell](../fig/00_7_jupyter_markdown_before.png)
-  *A markdown input cell*
+![markdown input cell](../fig/00_7_jupyterlab_markdown_entry.png)
+*A markdown input cell*
 
-* To run the cell, type <kbd>Shift</kbd>+<kbd>Return</kbd>.
+* To run the cell, type <kbd>Shift</kbd>+<kbd>Return</kbd>
 
-  ![rendered markdown cell](../fig/00_8_jupyter_markdown_after.png)
-  *A rendered markdown cell*
+![rendered markdown cell](../fig/00_8_jupyterlab_markdown_output.png)
+*A rendered markdown cell*
 
+### Workflow
 
-This workflow has several advantages:
+The notebook workflow has several advantages:
 
 - You can easily type, edit, and copy and paste blocks of code.
-- Tab completion allows you to easily access the names of things you are using
-  and learn more about them.
-- It allows you to annotate your code with links, different sized text,
-  bullets, etc. to make information more accessible to you and your
+- Tab completion allows you to easily access the names of things you are using and learn more about them.
+- It allows you to annotate your code with links, different sized text, bullets, etc. to make information more accessible to you and your
   collaborators.
-- It allows you to display figures next to the code that produces them
-  to tell a complete story of the analysis.
+- It allows you to display figures next to the code that produces them to tell a complete story of the analysis.
 
 ### How the notebook is stored
 
-* The notebook file is stored in a format called JSON and has the suffix
-  `.ipynb`.
-* Just like HTML for a webpage, what's saved in a notebook file looks
-  different from what you see in your browser.
-* But this format allows Jupyter to mix software (in several languages) with
-  documentation and graphics, all in one file.
+The notebook file is stored in a format called JSON and has the suffix `.ipynb`.  
+Just like HTML for a webpage, what's saved in a notebook file looks different from what you see in your browser.  
+But this format allows Jupyter to mix software code (in several languages) with documentation and graphics, all in one file.  
+
+The user interface has a built-in file browser that you can access by clicking on the "folder" icon in the top left of the screen:
+![rendered markdown cell](../fig/00_9_jupyterlab_file_browser.png)
+*A rendered markdown cell
 
 ### Notebook modes: Control and Edit
 
