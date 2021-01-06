@@ -25,7 +25,7 @@ Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%
 Current maintainers of this lesson
 
 * [Nel Swanepoel](https://github.com/nels)
-* [Harry Moss]](https://github.com/harryjmoss/)
+* [Harry Moss](https://github.com/harryjmoss/)
 
 ## Authors
 
