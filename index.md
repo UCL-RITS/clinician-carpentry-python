@@ -10,8 +10,9 @@ The material contains an introduction to Python designed for participants with n
 
 It starts with some basic information about Python syntax, then looks at the JupyterLab notebook interface, moves through how to import data from CSV files, using the pandas package to work with data frames, how to calculate summary information from a data frame, and a brief introduction to plotting. The last lesson demonstrates how to work with databases directly from Python.
 
-An **R** version of this course is also available at FIXME
+An **R** version of this course is [also available](https://carpentries-incubator.github.io/Data-Science-for-Docs/index.html).
 
+The content for this course is based on the [Data Carpentry and Visualization in Python for Ecologists](https://datacarpentry.org/python-ecology-lesson/) course.
 
 
 > ## Getting Started
