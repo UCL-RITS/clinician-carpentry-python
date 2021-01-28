@@ -44,6 +44,10 @@ endif
 serve : lesson-md
 	${JEKYLL} serve
 
+## * liveserve            : render website and run a local server that will reload
+liveserve : lesson-md
+	${JEKYLL} serve --watch
+
 ## * site             : build website but do not run a server
 site : lesson-md
 	${JEKYLL} build
