@@ -72,7 +72,7 @@ Once a library is set up, it can be used or called to perform the task(s)
 it was built to do.
 
 ## Pandas in Python
-One of the best options for working with tabular data in Python is to use the Python Data Analysis Library [pandas](https://pandas.pydata.org/). The
+One of the best options for working with tabular data in Python is to use the Python Data Analysis Library [pandas][pandas]. The
 pandas library provides data structures, produces high quality plots with the
 [matplotlib][matplotlib] library and integrates nicely with other several other Python data analysis libraries.
 
@@ -104,7 +104,7 @@ one separator with another, to match your application. The first line in the fil
 to explain what is in each column. CSV (and other separators) make it easy to share data, and can be
 imported and exported from many applications, including Microsoft Excel. For more details on CSV
 files, see the [Data Organisation in Spreadsheets][spreadsheet-lesson5] lesson.
-We can use the pandas `read_csv` function to pull the file directly into a [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html).
+We can use the pandas `read_csv` function to pull the file directly into a [DataFrame][pd-dataframe].
 
 ## So What's a DataFrame?
 
@@ -116,51 +116,51 @@ an element in the data structure.
 
 ~~~
 # Note that pd.read_csv is used because we imported pandas as pd
-pd.read_csv("data/surveys.csv")
+pd.read_csv("data/synthetic_data_clean.csv")
 ~~~
 {: .language-python}
 
 The above command yields the **output** below:
 
 ~~~
-record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
-0          1      7   16  1977        2         NL   M               32   NaN
-1          2      7   16  1977        3         NL   M               33   NaN
-2          3      7   16  1977        2         DM   F               37   NaN
-3          4      7   16  1977        7         DM   M               36   NaN
-4          5      7   16  1977        3         DM   M               35   NaN
-...
-35544      35545     12   31  2002       15     AH  NaN              NaN  NaN
-35545      35546     12   31  2002       15     AH  NaN              NaN  NaN
-35546      35547     12   31  2002       10     RM    F               15   14
-35547      35548     12   31  2002        7     DO    M               36   51
-35548      35549     12   31  2002        5     NaN  NaN             NaN  NaN
+      ph_abg  hco3_abg  temp_c  temp_nc  urea      creatinine   na  ...         dob  vital_status  sex    id  lactate_1hr  lactate_6hr  lactate_12hr
+0       7.44      28.0    36.9     37.1   3.0   80 micromol/L  135  ...  1964-01-01             A    F     1          1.2          0.3           0.1
+1       7.30      20.2    36.6     36.4   5.8   93 micromol/L  140  ...  1984-01-01             A    M     2          1.8          0.5           0.3
+2       7.48      24.6    37.2     36.2   4.5   75 micromol/L  140  ...  1964-01-01             A    F     3          1.4          1.7           1.2
+3       7.33      22.3    35.4     35.8  13.7  173 micromol/L  136  ...  1944-01-01             A    M     4          1.5          1.4           1.4
+4       7.21      20.0    35.9     37.1   7.9  186 micromol/L  140  ...  1934-01-01             A    M     5          0.7          0.8           0.6
+...      ...       ...     ...      ...   ...             ...  ...  ...         ...           ...  ...   ...          ...          ...           ...
+4995    7.46      19.7    36.8     36.1  14.6   81 micromol/L  139  ...  1939-09-22             A    M  4996          0.7          0.6           0.5
+4996    7.42      27.2    36.9     38.2  12.4  268 micromol/L  142  ...  1959-09-24             A    M  4997          1.1          0.7           0.5
+4997    7.21      17.0    34.7     36.5   3.9   54 micromol/L  139  ...  1979-09-23             A    F  4998          0.7          0.2           0.2
+4998    7.41      24.8    36.0     36.0   1.7   59 micromol/L  139  ...  1939-09-23             A    F  4999          2.3          2.7           1.9
+4999    7.41      25.1    37.1     37.2   9.7  111 micromol/L  149  ...  1949-09-23             A    M  5000          1.8          2.0           1.4
 
-[35549 rows x 9 columns]
+[5000 rows x 32 columns]
 ~~~
 {: .output}
 
-We can see that there were 35,549 rows parsed. Each row has 9
+We can see that there were 5000 rows parsed. Each row has 32
 columns. The first column is the index of the DataFrame. The index is used to
 identify the position of the data, but it is not an actual column of the DataFrame.
-It looks like  the `read_csv` function in Pandas  read our file properly. However,
+It looks like  the `read_csv` function in Pandas did in fact read our file properly. However,
 we haven't saved any data to memory so we can work with it. We need to assign the
 DataFrame to a variable. Remember that a variable is a name for a value, such as `x`,
 or  `data`. We can create a new  object with a variable name by assigning a value to it using `=`.
 
-Let's call the imported survey data `surveys_df`:
+Let's call the imported survey data `patients_df`:
 
 ~~~
-surveys_df = pd.read_csv("data/surveys.csv")
+patients_df = pd.read_csv("data/synthetic_data_clean.csv")
 ~~~
 {: .language-python}
 
 Notice when you assign the imported DataFrame to a variable, Python does not
-produce any output on the screen. We can view the value of the `surveys_df`
+produce any output on the screen. We can view the value of the `patients_df`
 object by typing its name into the Python command prompt.
 
 ~~~
-surveys_df
+patients_df
 ~~~
 {: .language-python}
 
@@ -170,52 +170,19 @@ Note: if the output is too wide to print on your narrow terminal window, you may
 slightly different as the large set of data scrolls past. You may see simply the last column
 of data:
 ~~~
-17        NaN
-18        NaN
-19        NaN
-20        NaN
-21        NaN
-22        NaN
-23        NaN
-24        NaN
-25        NaN
-26        NaN
-27        NaN
-28        NaN
-29        NaN
-...       ...
-35519    36.0
-35520    48.0
-35521    45.0
-35522    44.0
-35523    27.0
-35524    26.0
-35525    24.0
-35526    43.0
-35527     NaN
-35528    25.0
-35529     NaN
-35530     NaN
-35531    43.0
-35532    48.0
-35533    56.0
-35534    53.0
-35535    42.0
-35536    46.0
-35537    31.0
-35538    68.0
-35539    23.0
-35540    31.0
-35541    29.0
-35542    34.0
-35543     NaN
-35544     NaN
-35545     NaN
-35546    14.0
-35547    51.0
-35548     NaN
+0       0.1
+1       0.3
+2       1.2
+3       1.4
+4       0.6
+       ... 
+4995    0.5
+4996    0.5
+4997    0.2
+4998    1.9
+4999    1.4
 
-[35549 rows x 9 columns]
+[5000 rows x 32 columns]
 ~~~
 {: .output}
 
@@ -224,33 +191,28 @@ easier to fit on one window, you can see that pandas has neatly formatted the da
 our screen:
 
 ~~~
-surveys_df.head() # The head() method displays the first several lines of a file. It
+patients_df.head() # The head() method displays the first several lines of a file. It
                   # is discussed below.
 ~~~
 {: .language-python}
 ~~~
-   record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
-5          6      7   16  1977        1         PF   M             14.0
-6          7      7   16  1977        2         PE   F              NaN
-7          8      7   16  1977        1         DM   M             37.0
-8          9      7   16  1977        1         DM   F             34.0
-9         10      7   16  1977        6         PF   F             20.0
+ph_abg  hco3_abg  temp_c  temp_nc  urea      creatinine   na    k  ...        discharge_dttm         dob  vital_status  sex  id  lactate_1hr  lactate_6hr  lactate_12hr
+0    7.44      28.0    36.9     37.1   3.0   80 micromol/L  135  4.2  ...  2014-01-02T01:06:16Z  1964-01-01             A    F   1          1.2          0.3           0.1
+1    7.30      20.2    36.6     36.4   5.8   93 micromol/L  140  4.4  ...  2014-01-05T00:35:32Z  1984-01-01             A    M   2          1.8          0.5           0.3
+2    7.48      24.6    37.2     36.2   4.5   75 micromol/L  140  3.8  ...  2014-01-05T13:24:13Z  1964-01-01             A    F   3          1.4          1.7           1.2
+3    7.33      22.3    35.4     35.8  13.7  173 micromol/L  136  5.0  ...  2014-01-02T23:31:51Z  1944-01-01             A    M   4          1.5          1.4           1.4
+4    7.21      20.0    35.9     37.1   7.9  186 micromol/L  140  4.9  ...  2014-01-08T14:03:18Z  1934-01-01             A    M   5          0.7          0.8           0.6
 
-   weight
-5     NaN
-6     NaN
-7     NaN
-8     NaN
-9     NaN
+[5 rows x 32 columns]
 ~~~
 {: .output}
 
 ## Exploring Our Species Survey Data
 
-Again, we can use the `type` function to see what kind of thing `surveys_df` is:
+Again, we can use the `type` function to see what kind of thing `patients_df` is:
 
 ~~~
-type(surveys_df)
+type(patients_df)
 ~~~
 {: .language-python}
 ~~~
@@ -261,32 +223,55 @@ type(surveys_df)
 As expected, it's a DataFrame (or, to use the full name that Python uses to refer
 to it internally, a `pandas.core.frame.DataFrame`).
 
-What kind of things does `surveys_df` contain? DataFrames have an attribute
+What kind of things does `patients_df` contain? DataFrames have an attribute
 called `dtypes` that answers this:
 
 ~~~
-surveys_df.dtypes
+patients_df.dtypes
 ~~~
 {: .language-python}
 ~~~
-record_id            int64
-month                int64
-day                  int64
-year                 int64
-plot_id              int64
-species_id          object
-sex                 object
-hindfoot_length    float64
-weight             float64
+ph_abg               float64
+hco3_abg             float64
+temp_c               float64
+temp_nc              float64
+urea                 float64
+creatinine            object
+na                     int64
+k                    float64
+hb                   float64
+wbc                  float64
+neutrophil           float64
+platelets              int64
+crp                  float64
+chemo                  int64
+chronic_rrt            int64
+metastatic             int64
+radiotx                int64
+apache                 int64
+medical                int64
+system                 int64
+height               float64
+weight                 int64
+elective_surgical      int64
+arrival_dttm          object
+discharge_dttm        object
+dob                   object
+vital_status          object
+sex                   object
+id                     int64
+lactate_1hr          float64
+lactate_6hr          float64
+lactate_12hr         float64
 dtype: object
 ~~~
 {: .output}
 
-All the values in a column have the same type. For example, months have type
-`int64`, which is a kind of integer. Cells in the month column cannot have
-fractional values, but the weight and hindfoot_length columns can, because they
+All the values in a column have the same type. For example, `id` has type
+`int64`, which is a kind of integer. Cells in the `id` column cannot have
+fractional values, but the `temp_c`and `height` columns can, because they
 have type `float64`. The `object` type doesn't have a very helpful name, but in
-this case it represents strings (such as 'M' and 'F' in the case of sex).
+this case it represents strings, such as `arrival_dttm` and `dob` here.
 
 We'll talk a bit more about what the different formats mean in a different lesson.
 
@@ -296,29 +281,29 @@ There are many ways to summarize and access the data stored in DataFrames,
 using attributes and methods provided by the DataFrame object.
 
 To access an attribute, use the DataFrame object name followed by the attribute
-name `df_object.attribute`. Using the DataFrame `surveys_df` and attribute
+name `df_object.attribute`. Using the DataFrame `patients_df` and attribute
 `columns`, an index of all the column names in the DataFrame can be accessed
-with `surveys_df.columns`.
+with `patients_df.columns`.
 
 Methods are called in a similar fashion using the syntax `df_object.method()`.
-As an example, `surveys_df.head()` gets the first few rows in the DataFrame
-`surveys_df` using **the `head()` method**. With a method, we can supply extra
+As an example, `patients_df.head()` gets the first few rows in the DataFrame
+`patients_df` using **the `head()` method**. With a method, we can supply extra
 information in the parens to control behaviour.
 
 Let's look at the data using these.
 
 > ## Challenge - DataFrames
 >
-> Using our DataFrame `surveys_df`, try out the attributes & methods below to see
+> Using our DataFrame `patients_df`, try out the attributes & methods below to see
 > what they return.
 >
-> 1. `surveys_df.columns`
-> 2. `surveys_df.shape` Take note of the output of `shape` - what format does it
+> 1. `patients_df.columns`
+> 2. `patients_df.shape` Take note of the output of `shape` - what format does it
 >    return the shape of the DataFrame in?
 >
 >    HINT: [More on tuples, here][python-datastructures].
-> 3. `surveys_df.head()` Also, what does `surveys_df.head(15)` do?
-> 4. `surveys_df.tail()`
+> 3. `patients_df.head()` Also, what does `patients_df.head(15)` do?
+> 4. `patients_df.tail()`
 {: .challenge}
 
 
@@ -334,83 +319,82 @@ Let's begin by exploring our data:
 
 ~~~
 # Look at the column names
-surveys_df.columns
+patients_df.columns
 ~~~
 {: .language-python}
 
 which **returns**:
 
 ~~~
-Index(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
-       'hindfoot_length', 'weight'],
+Index(['ph_abg', 'hco3_abg', 'temp_c', 'temp_nc', 'urea', 'creatinine', 'na',
+       'k', 'hb', 'wbc', 'neutrophil', 'platelets', 'crp', 'chemo',
+       'chronic_rrt', 'metastatic', 'radiotx', 'apache', 'medical', 'system',
+       'height', 'weight', 'elective_surgical', 'arrival_dttm',
+       'discharge_dttm', 'dob', 'vital_status', 'sex', 'id', 'lactate_1hr',
+       'lactate_6hr', 'lactate_12hr'],
       dtype='object')
 ~~~
 {: .output}
 
-Let's get a list of all the species. The `pd.unique` function tells us all of
+Let's get a list of all the heights of patients. The `pd.unique` function tells us all of
 the unique values in the `species_id` column.
 
 ~~~
-pd.unique(surveys_df['species_id'])
+pd.unique(patients_df['height'])
 ~~~
 {: .language-python}
 
 which **returns**:
 
 ~~~
-array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
-       'OL', 'RM', nan, 'SA', 'PM', 'AH', 'DX', 'AB', 'CB', 'CM', 'CQ',
-       'RF', 'PC', 'PG', 'PH', 'PU', 'CV', 'UR', 'UP', 'ZL', 'UL', 'CS',
-       'SC', 'BA', 'SF', 'RO', 'AS', 'SO', 'PI', 'ST', 'CU', 'SU', 'RX',
-       'PB', 'PL', 'PX', 'CT', 'US'], dtype=object)
+array([1.65, 1.8 , 1.7 , 1.5 , 1.9 , 1.6 , 1.75, 1.45, 1.85, 1.55])
 ~~~
 {: .language-python}
 
 > ## Challenge - Statistics
 >
-> 1. Create a list of unique site ID's ("plot_id") found in the surveys data. Call it
->   `site_names`. How many unique sites are there in the data? How many unique
->   species are in the data?
+> 1. Create a list of unique dates of birth ("dob") found in the patients data. Call it
+>   `birth_dates`. How many unique dates of birth are there in the data?
 >
-> 2. What is the difference between `len(site_names)` and `surveys_df['plot_id'].nunique()`?
+> 2. What is the difference between `len(birth_dates)` and `patients_df['dob'].nunique()`?
 {: .challenge}
 
 # Groups in Pandas
 
 We often want to calculate summary statistics grouped by subsets or attributes
 within fields of our data. For example, we might want to calculate the average
-weight of all individuals per site.
+height of all patients.
 
 We can calculate basic statistics for all records in a single column using the
 syntax below:
 
 ~~~
-surveys_df['weight'].describe()
+patients_df['height'].describe()
 ~~~
 {: .language-python}
 gives **output**
 
 ~~~
-count    32283.000000
-mean        42.672428
-std         36.631259
-min          4.000000
-25%         20.000000
-50%         37.000000
-75%         48.000000
-max        280.000000
-Name: weight, dtype: float64
+count    5000.00000
+mean        1.68634
+std         0.10117
+min         1.45000
+25%         1.60000
+50%         1.70000
+75%         1.75000
+max         1.90000
+Name: height, dtype: float64
 ~~~
 {: .language-python}
 
 We can also extract one specific metric if we wish:
 
 ~~~
-surveys_df['weight'].min()
-surveys_df['weight'].max()
-surveys_df['weight'].mean()
-surveys_df['weight'].std()
-surveys_df['weight'].count()
+patients_df['height'].min()
+patients_df['height'].max()
+patients_df['height'].mean()
+patients_df['height'].std()
+patients_df['height'].count()
 ~~~
 {: .language-python}
 
@@ -420,7 +404,7 @@ can quickly calculate summary statistics by a group of our choice.
 
 ~~~
 # Group data by sex
-grouped_data = surveys_df.groupby('sex')
+grouped_data = patients_df.groupby('sex')
 ~~~
 {: .language-python}
 
@@ -440,16 +424,12 @@ grouped_data.mean()
 `grouped_data.mean()` **OUTPUT:**
 
 ~~~
-        record_id     month        day         year    plot_id  \
-sex
-F    18036.412046  6.583047  16.007138  1990.644997  11.440854
-M    17754.835601  6.392668  16.184286  1990.480401  11.098282
+       ph_abg   hco3_abg     temp_c    temp_nc      urea          na  ...     weight  elective_surgical           id  lactate_1hr  lactate_6hr  lactate_12hr
+sex                                                                   ...                                                                                   
+F    7.354926  23.305031  36.319234  36.410419  7.437979  138.617988  ...  71.460374           0.437667  2495.410062     2.087934     1.825423      1.403562
+M    7.355657  23.220697  36.304829  36.334568  8.844118  137.995280  ...  80.818809           0.453885  2504.651053     2.062600     1.788526      1.350799
 
-     hindfoot_length     weight
-sex
-F          28.836780  42.170555
-M          29.709578  42.995379
-
+[2 rows x 26 columns]
 ~~~
 {: .language-python}
 
@@ -461,27 +441,21 @@ summary stats.
 > 1. How many recorded individuals are female `F` and how many male `M`?
 > 2. What happens when you group by two columns using the following syntax and
 >    then calculate mean values?
->   - `grouped_data2 = surveys_df.groupby(['plot_id', 'sex'])`
+>   - `grouped_data2 = patients_df.groupby(['height', 'sex'])`
 >   - `grouped_data2.mean()`
-> 3. Summarize weight values for each site in your data. HINT: you can use the
+> 3. Summarize temperature values for male and female patients in your data. HINT: you can use the
 >   following syntax to only create summary statistics for one column in your data.
->   `by_site['weight'].describe()`
+>   `by_sex['temp_c'].describe()`
 >
 >
 >> ## Did you get #3 right?
 >> **A Snippet of the Output from challenge 3 looks like:**
 >>
 >> ~~~
->>  site
->>  1     count    1903.000000
->>        mean       51.822911
->>        std        38.176670
->>        min         4.000000
->>        25%        30.000000
->>        50%        44.000000
->>        75%        53.000000
->>        max       231.000000
->>          ...
+>>  count       mean       std   min   25%   50%   75%   max
+>>  sex                                                           
+>>  F    2246.0  36.319234  1.059363  25.7  35.9  36.3  36.9  39.2
+>>  ...
 >> ~~~
 >> {: .output}
 > {: .solution}
@@ -489,27 +463,27 @@ summary stats.
 
 ## Quickly Creating Summary Counts in Pandas
 
-Let's next count the number of samples for each species. We can do this in a few
+Let's next count the number of samples of patients of different heights. We can do this in a few
 ways, but we'll use `groupby` combined with **a `count()` method**.
 
 
 ~~~
-# Count the number of samples by species
-species_counts = surveys_df.groupby('species_id')['record_id'].count()
-print(species_counts)
+# Count the number of samples by vital status
+height_counts = patients_df.groupby('height')['id'].count()
+print(height_counts)
 ~~~
 {: .language-python}
 
-Or, we can also count just the rows that have the species "DO":
+Or, we can also count just the rows that have patients with a height of 1.70 m:
 
 ~~~
-surveys_df.groupby('species_id')['record_id'].count()['DO']
+patients_df.groupby('height')['id'].count()[1.70]
 ~~~
 {: .language-python}
 
 > ## Challenge - Make a list
 >
->  What's another way to create a list of species and associated `count` of the
+>  What's another way to create a list of patients and associated `count` of the
 >  records in the data? Hint: you can perform `count`, `min`, etc. functions on
 >  groupby DataFrames in the same way you can perform them on regular DataFrames.
 {: .challenge}
@@ -517,13 +491,13 @@ surveys_df.groupby('species_id')['record_id'].count()['DO']
 ## Basic Math Functions
 
 If we wanted to, we could perform math on an entire column of our data. For
-example let's multiply all weight values by 2. A more practical use of this might
+example let's multiply all height values by 2. A more practical use of this might
 be to normalize the data according to a mean, area, or some other value
 calculated from our data.
 
 ~~~
-# Multiply all weight values by 2
-surveys_df['weight']*2
+# Multiply all height values by 2
+patients_df['height']*2
 ~~~
 {: .language-python}
 
@@ -532,20 +506,22 @@ surveys_df['weight']*2
 We can plot our summary stats using Pandas, too.
 
 ~~~
+import matplotlib.pyplot as plt
 # Make sure figures appear inline in Ipython Notebook
 %matplotlib inline
 # Create a quick bar chart
-species_counts.plot(kind='bar');
+height_counts.plot(kind='bar')
+plt.show()
 ~~~
 {: .language-python}
 
-![Weight by Species Site](../fig/countPerSpecies.png)
-Count per species site
+![Patient heights](../fig/countPerHeight.png)
+Distribution of patient heights
 
-We can also look at how many animals were captured in each site:
+We can also look at the mean height of male and female patients:
 
 ~~~
-total_count = surveys_df.groupby('plot_id')['record_id'].nunique()
+total_count = patients_df.groupby('sex')['height'].mean()
 # Let's plot that too
 total_count.plot(kind='bar');
 ~~~
@@ -553,14 +529,14 @@ total_count.plot(kind='bar');
 
 > ## Challenge - Plots
 >
-> 1. Create a plot of average weight across all species per site.
-> 2. Create a plot of total males versus total females for the entire dataset.
+> 1. Create a plot of average weight across all patients.
+> 2. Create a plot of total male patients versus total female patients for the entire dataset.
 {: .challenge}
 
 > ## Summary Plotting Challenge
 >
-> Create a stacked bar plot, with weight on the Y axis, and the stacked variable
-> being sex. The plot should show total weight by sex for each site. Some
+> Create a stacked bar plot, with the number of elective surgeries on the Y axis, and the stacked variable
+> being sex. The plot should show the total number of elective surgeries by sex for each vital status label. Some
 > tips are below to help you solve this challenge:
 >
 > * For more information on pandas plots, see [pandas' documentation page on visualization][pandas-plot].
@@ -600,74 +576,65 @@ total_count.plot(kind='bar');
 > for each plotting.  Try running `.unstack()` on some DataFrames above and see
 > what it yields.
 >
-> Start by transforming the grouped data (by site and sex) into an unstacked layout, then create
+> Start by transforming the grouped data (by vital status and sex) into an unstacked layout, then create
 > a stacked plot.
 >
 >
 >> ## Solution to Summary Challenge
 >>
->> First we group data by site and by sex, and then calculate a total for each site.
+>> First we group data by vital status and by sex, and then calculate a total of elective surgeries.
 >>
 >> ~~~
->> by_site_sex = surveys_df.groupby(['plot_id', 'sex'])
->> site_sex_count = by_site_sex['weight'].sum()
+>> patient_status_sex = patients_df.groupby(['vital_status', 'sex'])
+>> elective_surgery_sex_status_count = patient_status_sex['elective_surgical'].sum()
 >> ~~~
 >> {: .language-python}
 >>
->> This calculates the sums of weights for each sex within each site as a table
+>> This calculates the total number of elective surgeries for each sex with each vital status as a table
 >>
 >> ~~~
->> site  sex
->> plot_id  sex
->> 1        F      38253
->>          M      59979
->> 2        F      50144
->>          M      57250
->> 3        F      27251
->>          M      28253
->> 4        F      39796
->>          M      49377
->> <other sites removed for brevity>
+>>  vital_status  sex
+>>  A             F       908
+>>                M      1173
+>>  D             F        75
+>>                M        77
 >> ~~~
 >> {: .output}
 >>
->> Below we'll use `.unstack()` on our grouped data to figure out the total weight that each sex contributed to each site.
+>> Below we'll use `.unstack()` on our grouped data to figure out the total weight that each sex contributed to each vital status.
 >>
 >> ~~~
->> by_site_sex = surveys_df.groupby(['plot_id', 'sex'])
->> site_sex_count = by_site_sex['weight'].sum()
->> site_sex_count.unstack()
+>> patient_status_sex = patients_df.groupby(['vital_status', 'sex'])
+>> elective_surgery_sex_status_count = patient_status_sex['elective_surgical'].sum()
+>> elective_surgery_sex_status_count.unstack()
 >> ~~~
 >> {: .language-python }
 >>
 >> The `unstack` method above will display the following output:
 >>
 >> ~~~
->> sex          F      M
->> plot_id
->> 1        38253  59979
->> 2        50144  57250
->> 3        27251  28253
->> 4        39796  49377
->> <other sites removed for brevity>
+>>  sex             F     M
+>>  vital_status           
+>>  A             908  1173
+>>  D              75    77
 >> ~~~
 >> {: .output}
 >>
->> Now, create a stacked bar plot with that data where the weights for each sex are stacked by site.
+>> Now, create a stacked bar plot with that data where the number of elective surgeries for each sex are stacked by vital status.
 >>
 >> Rather than display it as a table, we can plot the above data by stacking the values of each sex as follows:
 >>
 >> ~~~
->> by_site_sex = surveys_df.groupby(['plot_id', 'sex'])
->> site_sex_count = by_site_sex['weight'].sum()
->> spc = site_sex_count.unstack()
->> s_plot = spc.plot(kind='bar', stacked=True, title="Total weight by site and sex")
->> s_plot.set_ylabel("Weight")
->> s_plot.set_xlabel("Plot")
+>> patient_status_sex = patients_df.groupby(['vital_status', 'sex'])
+>> elective_surgery_sex_status_count = patient_status_sex['elective_surgical'].sum()
+>> esssc = elective_surgery_sex_status_count.unstack()
+>> s_plot = esssc.plot(kind='bar', stacked=True, title="Total elective surgeries by sex and vital status")
+>> s_plot.set_ylabel("Elective surgeries")
+>> s_plot.set_xlabel("Vital status")
 >> ~~~
 >> {: .language-python}
 >>
->> ![Stacked Bar Plot](../fig/stackedBar.png)
+>> ![Stacked Bar Plot](../fig/stackedBar.png )
 > {: .solution}
 {: .challenge}
 
@@ -678,7 +645,7 @@ total_count.plot(kind='bar');
 [numpy]: https://www.numpy.org/
 [pandas]: https://pandas.pydata.org
 [pandas-plot]: http://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#basic-plotting-plot
-[pd-dataframe]: https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe
+[pd-dataframe]: (https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)
 [pptd]: https://figshare.com/articles/Portal_Project_Teaching_Database/1314459
 [python-datastructures]: https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences
 [spreadsheet-lesson5]: http://www.datacarpentry.org/spreadsheet-ecology-lesson/05-exporting-data
