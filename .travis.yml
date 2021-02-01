@@ -2,7 +2,7 @@
 dist: bionic # python 3.6 included
 language: ruby
 rvm:
-  - 2.7.2
+  - 2.7.1
 
 branches:
   only:
@@ -36,14 +36,11 @@ before_install:
   ## Install python and dependencies
   - python3 -m pip install --upgrade pip setuptools wheel
   - python3 -m pip install pyyaml
-  - gem update --system
-  - gem --version
-  - gem install bundler
-  - gem update bundler
-  - rvm --default use 2.7.2
+  - rvm --default use 2.7.1
   - ruby --version
 
+install:
+  - bundle install 
 script:
-  - make site
   - make lesson-check-all
   - make --always-make site
