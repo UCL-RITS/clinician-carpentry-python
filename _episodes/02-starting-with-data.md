@@ -45,11 +45,11 @@ directory structure, however, that is not our focus today.
 
 ### Our Data
 
-For this course, we will be using aggregated data from the Critical Care Health Informatics Collaborative (CC-HIC), a UK research body that has aggregated data from thousands of critical care patients. The data we will use takes an anonymised sample from this cohort and is available from [here](https://github.com/datascibc/ClinicianCoders). For a full description of the data that exists inside CC-HIC see [here](https://github.com/ropensci/cleanEHR/wiki/Data-set-1.0)
+For this course, we will be using data from the [Critical Care Health Informatics Collaborative (CC-HIC)](https://github.com/CC-HIC), a UK research body that has aggregated data from thousands of critical care patients. The data we will use takes an anonymised sample from this cohort and is available in the **`data/`** directory. For a full description of the data that exists inside CC-HIC see [here](https://docs.ropensci.org/cleanEHR/articles/cchic_overview.html) and [here](https://github.com/ropensci/cleanEHR/wiki/Data-set-1.0).
 
 You are also encouraged to try out the following lessons with your own data after the course!
 
-This section will use the `synthetic_data_clean.csv` file available [here](https://github.com/datascibc/ClinicianCoders).
+This section will use the `synthetic_data_clean.csv` file.
 The data has been pre-prepared for us today, and will be presented as two “spreadsheets”. The dataset is stored as a `.csv` file: each row holds information for a single patient and the columns represent each variable.
 
 The first few rows of our first file look like this:
@@ -60,7 +60,6 @@ ph_abg,hco3_abg,temp_c,temp_nc,urea,creatinine,na,k,hb,wbc,neutrophil,platelets,
 7.3,20.2,36.6,36.4,5.8,93 micromol/L,140,4.4,118,11.5,9.25,145,85,1,1,1,1,8,0,2,1.8,50,1,2014-01-01T00:35:32Z,2014-01-05T00:35:32Z,1984-01-01,A,M,00002,1.8,0.5,0.3
 7.48,24.6,37.2,36.2,4.5,75 micromol/L,140,3.8,113,12.4,11.5,211,12,1,1,1,1,15,1,3,1.7,70,0,2014-01-01T01:24:13Z,2014-01-05T13:24:13Z,1964-01-01,A,F,00003,1.4,1.7,1.2
 ~~~
-
 {: .output}
 ---
 
@@ -191,8 +190,7 @@ easier to fit on one window, you can see that pandas has neatly formatted the da
 our screen:
 
 ~~~
-patients_df.head() # The head() method displays the first several lines of a file. It
-                  # is discussed below.
+patients_df.head() # The head() method displays the first several lines of a file. It is discussed below.
 ~~~
 {: .language-python}
 ~~~
@@ -207,7 +205,7 @@ ph_abg  hco3_abg  temp_c  temp_nc  urea      creatinine   na    k  ...        di
 ~~~
 {: .output}
 
-## Exploring Our Species Survey Data
+## Exploring Our Patients Data
 
 Again, we can use the `type` function to see what kind of thing `patients_df` is:
 
@@ -300,7 +298,6 @@ Let's look at the data using these.
 > 1. `patients_df.columns`
 > 2. `patients_df.shape` Take note of the output of `shape` - what format does it
 >    return the shape of the DataFrame in?
->
 >    HINT: [More on tuples, here][python-datastructures].
 > 3. `patients_df.head()` Also, what does `patients_df.head(15)` do?
 > 4. `patients_df.tail()`
@@ -336,18 +333,24 @@ Index(['ph_abg', 'hco3_abg', 'temp_c', 'temp_nc', 'urea', 'creatinine', 'na',
 ~~~
 {: .output}
 
-Let's get a list of all the heights of patients. The `pd.unique` function tells us all of
-the unique values in the `species_id` column.
+The `apache` column contains the [APACHE II score](https://en.wikipedia.org/wiki/APACHE_II) for the patient.
+Let’s get a list of all the APACHE II scores. The pd.unique function tells us all of the unique values in the `apache` column.
 
 ~~~
-pd.unique(patients_df['height'])
+pd.unique(patients_df['apache'])
 ~~~
 {: .language-python}
 
 which **returns**:
 
 ~~~
-array([1.65, 1.8 , 1.7 , 1.5 , 1.9 , 1.6 , 1.75, 1.45, 1.85, 1.55])
+array([  6,   8,  15,  14,  20,  18,  56,  22,  16,  30,  25,   7,  28,
+        -1,  39,  64,  21,  11,  17,  19,   9,  27,   0,   2,  13,  10,
+        24,  26,  12,  60,  31,   5,  71,  44,  23,   4,  68,  61,  55,
+        80,  38,  62,  33,  69,  52,  59,   3,  58,  53,  73,  32, 115,
+        45, 105,  63,  57,  88,  49,  78,  77,  70,  97,  65,  67,  81,
+        50,  34,  87,  54, 109,  90, 108,  85,  35,  29,  42,  43,  48,
+       119]
 ~~~
 {: .language-python}
 
@@ -570,7 +573,7 @@ total_count.plot(kind='bar');
 > ~~~
 > {: .language-python }
 >
-> ![Stacked Bar Plot](../fig/stackedBar1.png)
+> ![Stacked Bar Plot](../fig/genericStackedBar.png)
 >
 > * You can use the `.unstack()` method to transform grouped data into columns
 > for each plotting.  Try running `.unstack()` on some DataFrames above and see
