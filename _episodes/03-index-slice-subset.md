@@ -437,14 +437,14 @@ Experiment with selecting various subsets of the "patients" data.
 > ## Challenge - Queries
 >
 > 1. Select a subset of rows in the `patients_df` DataFrame that contain data from patients born in
->   1989 and that contain weight values less than or equal to 80. How
+>   1989 with weights of less than or equal to 80kg. How
 >   many rows did you end up with? What did your neighbour get?
 >
 > 2. You can use the `isin` command in Python to query a DataFrame based upon a
 >   list of values as follows:
 >
 >    ~~~
->    patients_df[patients_df['height'].isin([listGoesHere])]
+>    patients_df[patients_df['height'].isin([list_goes_here])]
 >    ~~~
 >    {: .language-python }
 >
